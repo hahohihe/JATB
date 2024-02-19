@@ -20,9 +20,10 @@ async def PatrickTimer(bot: commands.Bot):
                 symbol = JATB.get_symbol()
                 cur_price = JATB.get_current_price(symbol)
                 
-                if now.hour % JATB.alarm_period == 0 and now.minute == 0 and 0 < now.second < 5:
-                    await SendMessage(chat_channel, 'System is running')
-                    await asyncio.sleep(5)
+                if JATB.isAlarm :
+                    if now.hour % JATB.alarm_period == 0 and now.minute == 0 and 0 < now.second < 5:
+                        await SendMessage(chat_channel, 'System is running')
+                        await asyncio.sleep(5)
 
                 if now.hour == int(start_time[0:2]) and now.minute == int(start_time[2:4]) and 0 < now.second < 10:
                     JATB.get_best_k(JATB.get_symbol())

@@ -163,6 +163,7 @@ long_target, short_target = 0, 0
 
 isLoop = True
 isTarget = False
+isAlarm = True
 position = {
     "Type" : 'None',
     "EntryPrice" : 0,

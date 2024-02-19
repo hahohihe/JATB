@@ -119,6 +119,10 @@ class PatrickCommand(commands.Cog):
     async def start_loop(self, ctx: discord.ext.commands.Context, value):
         JATB.isLoop = True
 
+    @start_group.command(name='alarm')
+    async def start_alarm(self, ctx: discord.ext.commands.Context, value):
+        JATB.isAlarm = True
+
     @commands.group(name='stop')
     async def stop_group(self, ctx: discord.ext.commands.Context):
         if ctx.invoked_subcommand is None:
@@ -127,3 +131,7 @@ class PatrickCommand(commands.Cog):
     @stop_group.command(name='loop')
     async def stop_loop(self, ctx: discord.ext.commands.Context, value):
         JATB.isLoop = False
+
+    @stop_group.command(name='alarm')
+    async def stop_alarm(self, ctx: discord.ext.commands.Context, value):
+        JATB.isAlarm = False
