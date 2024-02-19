@@ -116,12 +116,14 @@ class PatrickCommand(commands.Cog):
             await ctx.send('Command is incorrect')
 
     @start_group.command(name='loop')
-    async def start_loop(self, ctx: discord.ext.commands.Context, value):
+    async def start_loop(self, ctx: discord.ext.commands.Context):
         JATB.isLoop = True
+        await ctx.send('Loop on')
 
     @start_group.command(name='alarm')
-    async def start_alarm(self, ctx: discord.ext.commands.Context, value):
+    async def start_alarm(self, ctx: discord.ext.commands.Context):
         JATB.isAlarm = True
+        await ctx.send('Alarm on')
 
     @commands.group(name='stop')
     async def stop_group(self, ctx: discord.ext.commands.Context):
@@ -129,9 +131,11 @@ class PatrickCommand(commands.Cog):
             await ctx.send('Command is incorrect')
 
     @stop_group.command(name='loop')
-    async def stop_loop(self, ctx: discord.ext.commands.Context, value):
+    async def stop_loop(self, ctx: discord.ext.commands.Context):
         JATB.isLoop = False
+        await ctx.send('Loop off')
 
     @stop_group.command(name='alarm')
-    async def stop_alarm(self, ctx: discord.ext.commands.Context, value):
+    async def stop_alarm(self, ctx: discord.ext.commands.Context):
         JATB.isAlarm = False
+        await ctx.send('Alarm is off')

@@ -28,7 +28,7 @@ def init() :
 
 def get_binance() :
     # api Key, secret을 통해 가져오기
-    with open("api.txt") as f :
+    with open("../keys/api.txt") as f :
         lines = f.readlines()
         api_key = lines[0].strip()
         secret = lines[1].strip()

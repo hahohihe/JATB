@@ -4,7 +4,7 @@ from PatrickCommand import PatrickCommand
 from PatrickTimer import PatrickTimer
 
 def GetToken() :
-    f = open('token.txt')
+    f = open('../keys/token.txt')
     token = f.readline()
     f.close()
     return token
