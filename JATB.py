@@ -114,6 +114,7 @@ def get_amount(symbol, price, portion = 1) :
     usdt = get_balance()
     usdt_trade = usdt * portion
     amount = math.floor(usdt_trade * (1/min_order_qty) / price) / (1/min_order_qty)
+    
     return amount
 
 def cal_target_price(symbol) :
