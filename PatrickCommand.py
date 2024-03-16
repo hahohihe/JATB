@@ -2,6 +2,8 @@ import discord
 from discord.ext import commands
 import JATB
 
+version = '2.1'
+
 class PatrickCommand(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -10,6 +12,10 @@ class PatrickCommand(commands.Cog):
     async def init_group(self, ctx: discord.ext.commands.Context):
         JATB.init()
         await ctx.send('Succesful initialize, Please start loop again')
+
+    @commands.group(name='ver')
+    async def init_group(self, ctx: discord.ext.commands.Context):
+        await ctx.send(version)
 
     @commands.group(name='show')
     async def show_group(self, ctx: discord.ext.commands.Context):

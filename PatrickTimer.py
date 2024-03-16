@@ -4,7 +4,6 @@ import datetime
 import JATB
 import PatrickCommand
 
-
 SERVER_ID = 1202493390177050634
 CHANNEL_ID = 1202493390177050637
 
@@ -57,14 +56,14 @@ async def PatrickTimer(bot: commands.Bot):
                             amount = JATB.get_amount(symbol, cur_price)
                             JATB.enter_position('Short', symbol, cur_price, amount)
                             await SendMessage(chat_channel, 'Successful entry into Short Position')
-                    elif JATB.position['Type'] == 'Long' :
-                        if cur_price < JATB.short_target :
-                            JATB.exit_position(symbol)
-                            await SendMessage(chat_channel, 'Chnage position from Long to Short')
-                    elif JATB.position['Type'] == 'Short' :
-                        if cur_price > JATB.long_target :
-                            JATB.exit_position(symbol)
-                            await SendMessage(chat_channel, 'Chnage position from Short to Long')
+                    # elif JATB.position['Type'] == 'Long' :
+                    #     if cur_price < JATB.short_target :
+                    #         JATB.exit_position(symbol)
+                    #         await SendMessage(chat_channel, 'Chnage position from Long to Short')
+                    # elif JATB.position['Type'] == 'Short' :
+                    #     if cur_price > JATB.long_target :
+                    #         JATB.exit_position(symbol)
+                    #         await SendMessage(chat_channel, 'Chnage position from Short to Long')
         except Exception as e:
            await SendMessage(chat_channel, '[Error]' + str(e))
            await asyncio.sleep(10)
